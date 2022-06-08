@@ -1,7 +1,9 @@
 import githubIcon from '../images/social/github.png';
+import twitterIcon from '../images/social/twitter.png';
+import linkedinIcon from '../images/social/linkedin.png';
 
 interface SocialButtonProps {
-    platform: "github";
+    platform: "github" | "twitter" | "linkedin";
     profile: string;
     size?: number;
 }
@@ -12,6 +14,16 @@ const getSocialData = (props: SocialButtonProps) => {
             return {
                 link: `https://github.com/${props.profile}`,
                 icon: githubIcon
+            };
+        case "twitter":
+            return {
+                link: `https://twitter.com/${props.profile}`,
+                icon: twitterIcon
+            };
+        case "linkedin":
+            return {
+                link: `https://www.linkedin.com/in/${props.profile}`,
+                icon: linkedinIcon
             };
         default:
             return { link: "#", icon: "" };
@@ -24,7 +36,12 @@ export default function SocialButton(props: SocialButtonProps) {
     const data = getSocialData(props);
     const platformName = capitalize(props.platform);
     return (
-        <a href={data.link} target="_blank" title={platformName}>
+        <a
+            href={data.link}
+            title={platformName}
+            style={{ marginLeft: "0.5em" }}
+            target="_blank"
+        >
             <img
                 width={props.size || 64}
                 height={props.size || 64}
