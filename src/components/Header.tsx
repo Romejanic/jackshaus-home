@@ -1,4 +1,5 @@
 import Gravatar from 'react-gravatar';
+import Box from './Box';
 import styles from './Header.module.css';
 import SocialButton from './SocialButton';
 
@@ -8,7 +9,7 @@ const SOCIAL_BTN_SIZE = 42;
 
 export default function Header() {
     return (
-        <header className={styles.header}>
+        <Box className={styles.header}>
             <Gravatar
                 md5={GRAVATAR_HASH}
                 className={styles.avatar}
@@ -32,6 +33,6 @@ export default function Header() {
                 profile='jack-davenport-bab053189'
                 size={SOCIAL_BTN_SIZE}
             />
-        </header>
+        </Box>
     );
 }
