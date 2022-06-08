@@ -1,16 +1,20 @@
 import Gravatar from 'react-gravatar';
+import styles from './Header.module.css';
 
-// precalculate to avoid exposing my email ;)
+// precalculated to avoid exposing my email ;)
 const GRAVATAR_HASH = "f23ac41fd510b6da36d8f6c3f8aa71b6";
 
 export default function Header() {
     return (
-        <header>
-            <div className="profile">
-                <Gravatar
-                    md5={GRAVATAR_HASH}
-                />
-            </div>
+        <header className={styles.header}>
+            <Gravatar
+                md5={GRAVATAR_HASH}
+                className={styles.avatar}
+                size={100}
+            />
+            <span className={styles.title}>
+                Jack's Haus
+            </span>
         </header>
     );
 }
