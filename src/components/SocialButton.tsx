@@ -2,6 +2,8 @@ import githubIcon from '../images/social/github.png';
 import twitterIcon from '../images/social/twitter.png';
 import linkedinIcon from '../images/social/linkedin.png';
 
+import styles from './SocialButton.module.css';
+
 interface SocialButtonProps {
     platform: "github" | "twitter" | "linkedin";
     profile: string;
@@ -39,7 +41,7 @@ export default function SocialButton(props: SocialButtonProps) {
         <a
             href={data.link}
             title={platformName}
-            style={{ marginLeft: "0.5em" }}
+            className={styles.socialButton}
             target="_blank"
         >
             <img
@@ -47,6 +49,8 @@ export default function SocialButton(props: SocialButtonProps) {
                 height={props.size || 64}
                 alt={platformName}
                 src={data.icon}
+                className={styles.icon}
+                draggable={false}
             />
         </a>
     );
