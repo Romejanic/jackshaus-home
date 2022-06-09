@@ -42,7 +42,7 @@ export default function SocialButton(props: SocialButtonProps) {
             href={data.link}
             title={platformName}
             className={styles.socialButton}
-            target="_blank"
+            target="_blank" rel="noreferrer"
         >
             <img
                 width={props.size || 64}
