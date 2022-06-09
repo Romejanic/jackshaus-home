@@ -6,9 +6,3 @@
 .avatar {
     border-radius: 100%;
 }
-
-.title {
-    margin-left: 0.8em;
-    font-size: 2em;
-    flex-grow: 1;
-}

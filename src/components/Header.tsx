@@ -1,7 +1,8 @@
 import Gravatar from 'react-gravatar';
 import Box from './Box';
-import styles from './Header.module.css';
+import Title from './Title';
 import SocialButton from './SocialButton';
+import styles from './Header.module.css';
 
 // precalculated to avoid exposing my email ;)
 const GRAVATAR_HASH = "f23ac41fd510b6da36d8f6c3f8aa71b6";
@@ -15,9 +16,7 @@ export default function Header() {
                 className={styles.avatar}
                 size={100}
             />
-            <span className={styles.title}>
-                Jack's Haus
-            </span>
+            <Title>Jack's Haus</Title>
             <SocialButton
                 platform='github'
                 profile='Romejanic' 

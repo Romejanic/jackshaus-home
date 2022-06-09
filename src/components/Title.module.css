@@ -1,0 +1,9 @@
+.title {
+    margin-left: 0.8em;
+    font-size: 2em;
+    flex-grow: 1;
+}
+
+.small {
+    font-size: 1.5em;
+}

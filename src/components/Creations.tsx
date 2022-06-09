@@ -1,9 +1,10 @@
 import Box from "./Box";
+import Title from "./Title";
 
 export default function Creations() {
     return (
         <Box>
-            <span>Stuff I've made</span>
+            <Title small={true}>Stuff I've made</Title>
         </Box>
     );
 }
