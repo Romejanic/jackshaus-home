@@ -15,11 +15,12 @@
     },
     "scripts": {
         "start": "react-scripts start",
-        "build": "react-scripts build && npm run build:api",
+        "build": "react-scripts build && npm run deploy:api",
         "eject": "react-scripts eject",
 
-        "build:api": "cp api/*.php build/api/"
+        "deploy:api": "cp api/*.php ~/web_root/api/"
     },
+    "proxy": "http://localhost",
     "eslintConfig": {
         "extends": [
             "react-app"

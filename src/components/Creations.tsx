@@ -6,28 +6,18 @@ import Thing from "./Thing";
 
 import ThingData from "../data/thing";
 
-const DUMMY_ITEMS: ThingData[] = [
-    {
-        name: "Thing 1",
-        description: "lorem ipsum",
-        image: ""
-    },
-    {
-        name: "Thing 2",
-        description: "lorem ipsum",
-        image: ""
-    },
-    {
-        name: "Thing 3",
-        description: "lorem ipsum",
-        image: ""
-    },
-    {
-        name: "Thing 4",
-        description: "lorem ipsum",
-        image: ""
+const DUMMY_ITEMS = (() => {
+    let arr: ThingData[] = [];
+    for(let i = 0; i < 7; i++) {
+        arr.push({
+            name: "Thing " + (i+1),
+            description: "lorem ipsum",
+            image: "https://upload.wikimedia.org/wikipedia/commons/b/bd/Test.svg",
+            url: "/sven"
+        });
     }
-];
+    return arr;
+})();
 
 export default function Creations() {
     const [things] = useState(DUMMY_ITEMS);

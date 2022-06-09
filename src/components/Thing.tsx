@@ -7,10 +7,12 @@ interface ThingProps {
 
 export default function Thing({ data }: ThingProps) {
     return (
-        <div className={styles.thing}>
-            <span>{data.name}</span>
-            <span>{data.description}</span>
-            <span>{data.image}</span>
-        </div>
+        <a href={data.url} target="_blank" rel="noreferrer" className={styles.thing}>
+            <img className={styles.thumb} src={data.image} alt={data.name} />
+            <div className={styles.info}>
+                <span className={styles.title}>{data.name}</span>
+                <span className={styles.subtitle}>{data.description}</span>
+            </div>
+        </a>
     );
 }
