@@ -8,8 +8,11 @@ document.body.appendChild(rootElem);
 
 const root = ReactDOM.createRoot(rootElem);
 
+const useStrict = true;
+const Strict = useStrict ? React.StrictMode : React.Fragment;
+
 root.render(
-    <React.StrictMode>
+    <Strict>
         <App />
-    </React.StrictMode>
+    </Strict>
 );

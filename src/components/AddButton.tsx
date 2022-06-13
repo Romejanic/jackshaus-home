@@ -10,6 +10,7 @@ export default function AddButton({ onPress }: AddButtonProps) {
         <div
             onClick={onPress}
             className={`${styles.addButton} ${parentStyles.addButton}`}
+            title="Add a letter"
         >
             +
         </div>

@@ -1,11 +1,12 @@
 .addButton {
-    float: right;
+    align-self: flex-end;
     visibility: hidden;
 
     width: 1.5em;
     height: 1.5em;
     line-height: 1.5em;
     text-align: center;
+    border-radius: 0.5em;
 
     user-select: none;
     cursor: pointer;

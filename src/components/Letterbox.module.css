@@ -10,6 +10,11 @@
     text-align: center;
 }
 
+.header {
+    display: flex;
+    flex-direction: row;
+}
+
 .main:hover > .header .addButton {
     visibility: visible;
 }
