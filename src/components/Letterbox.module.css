@@ -5,3 +5,11 @@
 
     margin-top: 1em;
 }
+
+.loading {
+    text-align: center;
+}
+
+.main:hover > .header .addButton {
+    visibility: visible;
+}

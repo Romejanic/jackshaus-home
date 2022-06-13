@@ -5,9 +5,10 @@ import LetterTile from "./LetterTile";
 import Title from "./Title";
 
 import Letter from "../data/letter";
+import AddButton from "./AddButton";
 
 export default function Letterbox() {
-    const [letters, setLetters] = useState<Letter[]>([]);
+    const [letters, setLetters] = useState<Letter[] | null>(null);
 
     useEffect(() => {
         // load letter data
@@ -22,14 +23,21 @@ export default function Letterbox() {
     }, []);
 
     return (
-        <Box>
-            <Title small={true}>Leave a letter!</Title>
+        <Box className={styles.main}>
+            <div className={styles.header}>
+                <Title small={true}>Leave a letter!</Title>
+                <AddButton onPress={() => alert("hi")} />
+            </div>
 
-            <div className={styles.letters}>
+            {!letters && <div>
+                <h3 className={styles.loading}>Loading...</h3>
+            </div>}
+
+            {letters && <div className={styles.letters}>
                 {letters.map((v,i) => 
                     <LetterTile key={i} data={v} />
                 )}
-            </div>
+            </div>}
         </Box>
     );
 }
