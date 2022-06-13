@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from './Letterbox.module.css';
 import Box from "./Box";
 import LetterTile from "./LetterTile";
@@ -6,27 +6,20 @@ import Title from "./Title";
 
 import Letter from "../data/letter";
 
-const DUMMY_LETTERS: Letter[] = [
-    {
-        letter: "T",
-        color: "#ffee22"
-    },
-    {
-        letter: "E",
-        color: "#cccccc"
-    },
-    {
-        letter: "S",
-        color: "#ffee22"
-    },
-    {
-        letter: "T",
-        color: "#ffee22"
-    }
-];
-
 export default function Letterbox() {
-    const [letters] = useState(DUMMY_LETTERS);
+    const [letters, setLetters] = useState<Letter[]>([]);
+
+    useEffect(() => {
+        // load letter data
+        fetch("/api/get_letters.php")
+            .then(r => r.json())
+            .then(data => {
+                setLetters(data as Letter[]);
+            })
+            .catch(err => {
+                console.error("Error while fetching letters!", err);
+            });
+    }, []);
 
     return (
         <Box>
