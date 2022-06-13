@@ -11,7 +11,7 @@ export default function AddButton({ onPress }: AddButtonProps) {
             onClick={onPress}
             className={`${styles.addButton} ${parentStyles.addButton}`}
         >
-            A
+            +
         </div>
     );
 }
