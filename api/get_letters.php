@@ -4,7 +4,7 @@
 
     $data = array();
 
-    foreach($db_conn->query("SELECT letter FROM Letters") as $row) {
+    foreach($db_conn->query("SELECT letter FROM Letters ORDER BY id DESC LIMIT 10") as $row) {
         array_push($data, $row["letter"]);
     }
 
