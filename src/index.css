@@ -16,3 +16,26 @@ body {
     background-size: cover;
     background-attachment: fixed;
 }
+
+/*
+    Workaround required for mobile 
+    Source: https://stackoverflow.com/questions/26372127/background-fixed-no-repeat-not-working-on-mobile
+*/
+
+@media only screen and (max-width: 800px) {
+    body:before {
+        content: "";
+        display: block;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -10;
+        background: url("images/background.jpg") no-repeat center center;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+}

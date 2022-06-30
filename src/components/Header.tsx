@@ -17,21 +17,23 @@ export default function Header() {
                 size={100}
             />
             <Title>Jack's Haus</Title>
-            <SocialButton
-                platform='github'
-                profile='Romejanic' 
-                size={SOCIAL_BTN_SIZE}
-            />
-            <SocialButton
-                platform='twitter'
-                profile='jackd5011'
-                size={SOCIAL_BTN_SIZE}
-            />
-            <SocialButton
-                platform='linkedin'
-                profile='jack-davenport-bab053189'
-                size={SOCIAL_BTN_SIZE}
-            />
+            <div className={styles.socialButtons}>
+                <SocialButton
+                    platform='github'
+                    profile='Romejanic' 
+                    size={SOCIAL_BTN_SIZE}
+                />
+                <SocialButton
+                    platform='twitter'
+                    profile='jackd5011'
+                    size={SOCIAL_BTN_SIZE}
+                />
+                <SocialButton
+                    platform='linkedin'
+                    profile='jack-davenport-bab053189'
+                    size={SOCIAL_BTN_SIZE}
+                />
+            </div>
         </Box>
     );
 }

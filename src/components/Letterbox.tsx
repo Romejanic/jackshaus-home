@@ -39,7 +39,7 @@ export default function Letterbox() {
         <Box className={styles.main}>
             <div className={styles.header}>
                 <Title small={true}>Leave a letter!</Title>
-                {showAddButton && <AddButton onPress={() => setModalOpen(true)} />}
+                <AddButton onPress={() => setModalOpen(true)} show={showAddButton} />
             </div>
 
             {!letters && <div>
