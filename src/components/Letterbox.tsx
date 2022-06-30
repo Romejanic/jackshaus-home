@@ -3,11 +3,10 @@ import styles from './Letterbox.module.css';
 import Box from "./Box";
 import LetterTile from "./LetterTile";
 import Title from "./Title";
-
-import Letter from "../data/letter";
 import AddButton from "./AddButton";
 import Modal from "./Modal";
 import LetterForm from "./LetterForm";
+import Letter from "../data/letter";
 
 export default function Letterbox() {
     const [letters, setLetters] = useState<Letter[] | null>(null);
@@ -29,11 +28,16 @@ export default function Letterbox() {
         setModalOpen(false);
     }
 
+    function onLetterAdded(letter: Letter) {
+        onModalClosed();
+        setLetters([...letters as Letter[], letter]);
+    }
+
     return (
         <Box className={styles.main}>
             <div className={styles.header}>
                 <Title small={true}>Leave a letter!</Title>
-                <AddButton onPress={() => setModalOpen(true)} />
+                {letters && <AddButton onPress={() => setModalOpen(true)} />}
             </div>
 
             {!letters && <div>
@@ -48,6 +52,7 @@ export default function Letterbox() {
 
             <Modal open={modalOpen} handleClose={onModalClosed}>
                 <LetterForm
+                    onSubmit={onLetterAdded}
                     onCancel={onModalClosed}
                 />
             </Modal>

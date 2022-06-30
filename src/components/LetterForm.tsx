@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Char } from "../data/letter";
+import Letter, { Char } from "../data/letter";
 import LetterTile from "./LetterTile";
 import styles from "./LetterForm.module.css";
 
 interface LetterFormProps {
+    onSubmit: (letter: Letter) => void;
     onCancel: () => void;
 };
 
@@ -18,6 +19,10 @@ export default function LetterForm({ onCancel }: LetterFormProps) {
     }
 
     const inputValid = letter.length > 0 && colour.length >= 6;
+
+    function submitLetter() {
+
+    }
 
     return (
         <div className={styles.form}>
@@ -46,7 +51,7 @@ export default function LetterForm({ onCancel }: LetterFormProps) {
                 <button
                     className={styles.button}
                     disabled={!inputValid}
-                    onClick={() => alert(1)}
+                    onClick={submitLetter}
                 >
                     Submit
                 </button>
