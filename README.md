@@ -1,6 +1,21 @@
 # jackshaus-home
 The homepage for my personal home web server
 
+## Run local dev server
+```sh
+$ npm run start
+```
+
+## Deploy to Apache
+```sh
+$ npm run deploy
+```
+
+## Deploy PHP scripts only
+```sh
+$ npm run deploy:api
+```
+
 ## Credits and Attributions
 - [Github Icon](https://www.flaticon.com/free-icon/github_733609?term=github&page=1&position=3&page=1&position=3&related_id=733609&origin=search#) by [Pixel perfect](https://www.flaticon.com/authors/pixel-perfect)
 - [Twitter Icon](https://www.flaticon.com/free-icon/twitter_1384017?term=twitter&page=1&position=8&page=1&position=8&related_id=1384017&origin=search#) by [Freepik](https://www.flaticon.com/authors/freepik)
