@@ -33,11 +33,13 @@ export default function Letterbox() {
         setLetters([letter, ...letters as Letter[]]);
     }
 
+    const showAddButton = letters != null && !modalOpen;
+
     return (
         <Box className={styles.main}>
             <div className={styles.header}>
                 <Title small={true}>Leave a letter!</Title>
-                {letters && <AddButton onPress={() => setModalOpen(true)} />}
+                {showAddButton && <AddButton onPress={() => setModalOpen(true)} />}
             </div>
 
             {!letters && <div>
