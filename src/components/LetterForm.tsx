@@ -6,6 +6,12 @@ export default function LetterForm() {
     const [letter, setLetter] = useState<Char>("A");
     const [colour, setColour] = useState("#ffffff");
 
+    function onLetterInput(e: React.ChangeEvent<HTMLInputElement>) {
+        let val = e.target.value.toUpperCase();
+        val = val.length > 1 ? val.substring(0, 1) : val;
+        setLetter(val as Char);
+    }
+
     return (
         <div>
             <LetterTile data={{ letter, color: colour }} />
@@ -13,7 +19,7 @@ export default function LetterForm() {
                 <label>Letter</label>
                 <input
                     type="text" maxLength={1}
-                    onChange={e => setLetter(e.target.value.toUpperCase() as Char)}
+                    onChange={onLetterInput}
                     value={letter}
                 />
             </div>
