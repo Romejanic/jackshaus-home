@@ -7,12 +7,11 @@ import Title from "./Title";
 import Letter from "../data/letter";
 import AddButton from "./AddButton";
 import Modal from "./Modal";
+import LetterForm from "./LetterForm";
 
 export default function Letterbox() {
     const [letters, setLetters] = useState<Letter[] | null>(null);
     const [modalOpen, setModalOpen] = useState(false);
-    const [letter, setLetter] = useState("");
-    const [colour, setColour] = useState("#ffffff");
 
     useEffect(() => {
         // load letter data
@@ -48,15 +47,7 @@ export default function Letterbox() {
             </div>}
 
             <Modal open={modalOpen} handleClose={onModalClosed}>
-                <div>
-                    <label>Letter</label>
-                    <input type="text" maxLength={1} onChange={e => setLetter(e.target.value)} value={letter} />
-                </div>
-                <div>
-                    <label>Colour</label>
-                    <input type="color" onChange={e => setColour(e.target.value)} value={colour} />
-                </div>
-                <span style={{ backgroundColor: colour }}>{letter}</span>
+                <LetterForm />
             </Modal>
         </Box>
     );
