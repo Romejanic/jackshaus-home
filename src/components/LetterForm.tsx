@@ -3,7 +3,11 @@ import { Char } from "../data/letter";
 import LetterTile from "./LetterTile";
 import styles from "./LetterForm.module.css";
 
-export default function LetterForm() {
+interface LetterFormProps {
+    onCancel: () => void;
+};
+
+export default function LetterForm({ onCancel }: LetterFormProps) {
     const [letter, setLetter] = useState<Char>("J");
     const [colour, setColour] = useState("#ffffff");
 
@@ -12,6 +16,8 @@ export default function LetterForm() {
         val = val.length > 1 ? val.substring(0, 1) : val;
         setLetter(val as Char);
     }
+
+    const inputValid = letter.length > 0 && colour.length >= 6;
 
     return (
         <div className={styles.form}>
@@ -35,6 +41,21 @@ export default function LetterForm() {
                         value={colour}
                     />
                 </div>
+            </div>
+            <div className={styles.buttons}>
+                <button
+                    className={styles.button}
+                    disabled={!inputValid}
+                    onClick={() => alert(1)}
+                >
+                    Submit
+                </button>
+                <button
+                    className={styles.button}
+                    onClick={onCancel}
+                >
+                    Cancel
+                </button>
             </div>
         </div>
     );

@@ -47,7 +47,9 @@ export default function Letterbox() {
             </div>}
 
             <Modal open={modalOpen} handleClose={onModalClosed}>
-                <LetterForm />
+                <LetterForm
+                    onCancel={onModalClosed}
+                />
             </Modal>
         </Box>
     );
