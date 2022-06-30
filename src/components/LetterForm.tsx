@@ -8,9 +8,11 @@ interface LetterFormProps {
     onCancel: () => void;
 };
 
-export default function LetterForm({ onCancel }: LetterFormProps) {
+export default function LetterForm({ onSubmit, onCancel }: LetterFormProps) {
     const [letter, setLetter] = useState<Char>("J");
     const [colour, setColour] = useState("#ffffff");
+    const [submitted, setSubmitted] = useState(false);
+    const [error, setError] = useState("");
 
     function onLetterInput(e: React.ChangeEvent<HTMLInputElement>) {
         let val = e.target.value.toUpperCase();
@@ -21,7 +23,31 @@ export default function LetterForm({ onCancel }: LetterFormProps) {
     const inputValid = letter.length > 0 && colour.length >= 6;
 
     function submitLetter() {
+        setSubmitted(true);
+        setError("");
 
+        fetch("/api/add_letter.php", {
+            method: "POST",
+            headers:{
+                "Content-Type": "application/x-www-form-urlencoded"
+            },  
+            body: new URLSearchParams({
+                letter, color: colour
+            })
+        })
+        .then(res => res.json())
+        .then(res => {
+            if(!res.success) {
+                setError(res.error);
+            } else {
+                onSubmit({ letter: letter, color: colour });
+            }
+            setSubmitted(false);
+        })
+        .catch(e => {
+            setError(e);
+            setSubmitted(false);
+        });
     }
 
     return (
@@ -50,18 +76,20 @@ export default function LetterForm({ onCancel }: LetterFormProps) {
             <div className={styles.buttons}>
                 <button
                     className={styles.button}
-                    disabled={!inputValid}
+                    disabled={!inputValid || submitted}
                     onClick={submitLetter}
                 >
                     Submit
                 </button>
                 <button
                     className={styles.button}
+                    disabled={submitted}
                     onClick={onCancel}
                 >
                     Cancel
                 </button>
             </div>
+            <span className={styles.error}>{error}</span>
         </div>
     );
 }

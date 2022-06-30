@@ -30,7 +30,7 @@ export default function Letterbox() {
 
     function onLetterAdded(letter: Letter) {
         onModalClosed();
-        setLetters([...letters as Letter[], letter]);
+        setLetters([letter, ...letters as Letter[]]);
     }
 
     return (
