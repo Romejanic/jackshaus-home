@@ -6,9 +6,13 @@ import Title from "./Title";
 
 import Letter from "../data/letter";
 import AddButton from "./AddButton";
+import Modal from "./Modal";
 
 export default function Letterbox() {
     const [letters, setLetters] = useState<Letter[] | null>(null);
+    const [modalOpen, setModalOpen] = useState(false);
+    const [letter, setLetter] = useState("");
+    const [colour, setColour] = useState("#ffffff");
 
     useEffect(() => {
         // load letter data
@@ -22,11 +26,15 @@ export default function Letterbox() {
             });
     }, []);
 
+    function onModalClosed() {
+        setModalOpen(false);
+    }
+
     return (
         <Box className={styles.main}>
             <div className={styles.header}>
                 <Title small={true}>Leave a letter!</Title>
-                <AddButton onPress={() => alert("hi")} />
+                <AddButton onPress={() => setModalOpen(true)} />
             </div>
 
             {!letters && <div>
@@ -38,6 +46,18 @@ export default function Letterbox() {
                     <LetterTile key={i} data={v} />
                 )}
             </div>}
+
+            <Modal open={modalOpen} handleClose={onModalClosed}>
+                <div>
+                    <label>Letter</label>
+                    <input type="text" maxLength={1} onChange={e => setLetter(e.target.value)} value={letter} />
+                </div>
+                <div>
+                    <label>Colour</label>
+                    <input type="color" onChange={e => setColour(e.target.value)} value={colour} />
+                </div>
+                <span style={{ backgroundColor: colour }}>{letter}</span>
+            </Modal>
         </Box>
     );
 }
