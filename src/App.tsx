@@ -1,4 +1,5 @@
 import Creations from './components/Creations';
+import Footer from './components/Footer';
 import Header from './components/Header';
 import Letterbox from './components/Letterbox';
 
@@ -8,6 +9,7 @@ function App() {
             <Header />
             <Creations />
             <Letterbox />
+            <Footer />
         </main>
     );
 }
