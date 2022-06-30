@@ -5,3 +5,7 @@
 .icon {
     user-select: none;
 }
+
+.icon:hover {
+    filter: invert(1);
+}
