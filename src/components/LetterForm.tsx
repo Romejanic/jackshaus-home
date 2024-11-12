@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import Letter, { Char } from "../data/letter";
+import type Letter from "../data/letter";
+import type { Char } from "../data/letter";
 import LetterTile from "./LetterTile";
 import styles from "./LetterForm.module.css";
+import endpoints from "../data/endpoints";
 
 interface LetterFormProps {
     onSubmit: (letter: Letter) => void;
@@ -26,7 +28,7 @@ export default function LetterForm({ onSubmit, onCancel }: LetterFormProps) {
         setSubmitted(true);
         setError("");
 
-        fetch("/api/add_letter.php", {
+        fetch(endpoints.addThingUrl, {
             method: "POST",
             headers:{
                 "Content-Type": "application/x-www-form-urlencoded"
