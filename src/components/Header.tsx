@@ -24,11 +24,6 @@ export default function Header() {
                     size={SOCIAL_BTN_SIZE}
                 />
                 <SocialButton
-                    platform='twitter'
-                    profile='jackd5011'
-                    size={SOCIAL_BTN_SIZE}
-                />
-                <SocialButton
                     platform='linkedin'
                     profile='jack-davenport-bab053189'
                     size={SOCIAL_BTN_SIZE}
