@@ -1,19 +1,27 @@
 # jackshaus-home
-The homepage for my personal home web server
+The homepage for my personal home web server.
+
+## Local dev setup
+This project uses [Bun](https://bun.sh).
+```sh
+git clone git@github.com:Romejanic/jackshaus-home.git
+cd jackshaus-home
+bun install
+```
 
 ## Run local dev server
 ```sh
-$ npm run start
+bun dev
 ```
 
 ## Deploy to Apache
 ```sh
-$ npm run deploy
+bun run deploy
 ```
 
 ## Deploy PHP scripts only
 ```sh
-$ npm run deploy:api
+bun run deploy:api
 ```
 
 ## Credits and Attributions
