@@ -6,7 +6,8 @@ import Title from "./Title";
 import AddButton from "./AddButton";
 import Modal from "./Modal";
 import LetterForm from "./LetterForm";
-import Letter from "../data/letter";
+import type Letter from "../data/letter";
+import endpoints from "../data/endpoints";
 
 export default function Letterbox() {
     const [letters, setLetters] = useState<Letter[] | null>(null);
@@ -14,7 +15,7 @@ export default function Letterbox() {
 
     useEffect(() => {
         // load letter data
-        fetch("/api/get_letters.php")
+        fetch(endpoints.letterUrl)
             .then(r => r.json())
             .then(data => {
                 setLetters(data as Letter[]);

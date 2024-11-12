@@ -3,15 +3,15 @@ import styles from './Creations.module.css';
 import Box from "./Box";
 import Title from "./Title";
 import Thing from "./Thing";
-
-import ThingData from "../data/thing";
+import type ThingData from "../data/thing";
+import endpoints from "../data/endpoints";
 
 export default function Creations() {
     const [things, setThings] = useState<ThingData[] | null>(null);
 
     useEffect(() => {
         // load thing data
-        fetch("/api/get_items.php")
+        fetch(endpoints.thingsUrl)
             .then(r => r.json())
             .then(data => {
                 setThings(data as ThingData[]);

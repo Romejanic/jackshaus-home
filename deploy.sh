@@ -1,8 +1,8 @@
 #!/bin/bash
-echo "Deploying React build"
+echo "Deploying Astro build"
 
-WEB_ROOT=~/web_root
-FILES=$(cd ./build && find . -type f)
+WEB_ROOT=~/www
+FILES=$(cd ./dist && find . -type f)
 
 echo "Cleaning old build files..."
 for f in $FILES
@@ -13,5 +13,5 @@ done
 echo "  done"
 echo "Copying new build files..."
 
-cp -r build/* $WEB_ROOT/
+cp -r dist/* $WEB_ROOT/
 echo " done"
